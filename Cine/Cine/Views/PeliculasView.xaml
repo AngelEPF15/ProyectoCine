@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:Cine.ViewModels"
+             x:Class="Cine.Views.PeliculasView" Title="Peliculas">
+    <ContentPage.BindingContext>
+        <viewmodels:PeliculasViewModel x:Name="a"></viewmodels:PeliculasViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding CambiarVistaCommand}" CommandParameter="Agregar"  Text="Agregar" ></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <CollectionView ItemsSource="{Binding Grupo}" >
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItem BackgroundColor="red" Command="{Binding Source={x:Reference a}, Path= EditarCommand}" CommandParameter="{Binding .}" Text="Editar"></SwipeItem>
+                            <SwipeItem  BackgroundColor="blue" Clicked="SwipeItem_Clicked"  CommandParameter="{Binding .}" Text="Eliminar"></SwipeItem>
+                        </SwipeView.RightItems>
+                        <Grid Margin="10">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding Source={x:Reference a}, Path= MostrarDetallesCommand}" 
+                                      CommandParameter="{Binding .}">
+                                </TapGestureRecognizer>
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="150"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Column="0"   Text="{Binding Titulo}" TextColor="LightBlue" FontSize="30"></Label>
+                            <Label Grid.Column="1"   Text="{Binding Genero}" TextColor="LightBlue" FontSize="30"></Label>
+                        </Grid>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ScrollView>
+</ContentPage>

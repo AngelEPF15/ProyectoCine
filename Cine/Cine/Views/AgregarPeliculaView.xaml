@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cine.Views.AgregarPeliculaView" Title="Agregar película" BackgroundColor="LightBlue">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding AgregarCommand}" Text="Agregar" ></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Margin="20">
+
+        <Label FontSize="18"  Text="Título:"></Label>
+        <Entry Text="{Binding peliculas.Titulo}"></Entry>
+        <Label  FontSize="18" Text="Año:"></Label>
+        <Entry Text="{Binding peliculas.Año}" ></Entry>
+        <Label FontSize="18" Text="Género:"></Label>
+        <Entry Text="{Binding peliculas.Genero}"></Entry>
+        <Label FontSize="18" Text="Director:"></Label>
+        <Entry Text="{Binding peliculas.Director}"></Entry>
+        <Label FontSize="18" Text="Productora:"></Label>
+        <Entry Text="{Binding peliculas.Productora}"></Entry>
+
+        <Label Text="{Binding Error}" HorizontalOptions="Center" TextColor="red" FontSize="Small"></Label>
+    </StackLayout>
+</ContentPage>

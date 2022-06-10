@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cine.Views.EditarPeliculaView" Title="Editar película" Background="lightblue">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Guardar" Command="{Binding GuardarCommand}" ></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Margin="15">
+
+        <Label  Text="Título:" FontSize="15"></Label>
+        <Entry Text="{Binding peliculas.Titulo}"></Entry>
+        <Label  Text="Año:" FontSize="15"></Label>
+        <Entry Text="{Binding peliculas.Año}"></Entry>
+        <Label  Text="Género:" FontSize="15"></Label>
+        <Entry Text="{Binding peliculas.Genero}"></Entry>
+        <Label  Text="Director:" FontSize="15"></Label>
+        <Entry Text="{Binding peliculas.Director}"></Entry>
+        <Label  Text="Productora:" FontSize="15"></Label>
+        <Entry Text="{Binding peliculas.Productora}"></Entry>
+    </StackLayout>
+</ContentPage>
